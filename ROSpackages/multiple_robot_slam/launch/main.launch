@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!-- Start World -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="world_name" value="$(find multiple_robot_slam)/worlds/Building1.world"/>
+   <arg name="verbose" value="false" />
+  </include>
+
+  <!-- Spawn Robot -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find multiple_robot_slam)/urdf/robot1.urdf'" />
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-urdf -param robot_description -model robot1 -x 0 -y 0 -z 1" />
+
+</launch>

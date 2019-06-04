@@ -8,7 +8,7 @@
   </include>
 
   <!-- Spawn Robot -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find multiple_robot_slam)/urdf/robot1.urdf'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find multiple_robot_slam)/urdf/robot1.xacro'" />
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen"
         args="-urdf -param robot_description -model robot1 -x 0 -y 0 -z 1" />

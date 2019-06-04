@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: multiple_robot_slam
+Description: Description of multiple_robot_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: roscpp std_msgs std_srvs sensor_msgs message_runtime gazebo_ros gazebo_msgs

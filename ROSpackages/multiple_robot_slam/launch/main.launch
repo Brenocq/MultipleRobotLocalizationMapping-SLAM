@@ -7,10 +7,21 @@
    <arg name="verbose" value="false" />
   </include>
 
-  <!-- Spawn Robot -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find multiple_robot_slam)/urdf/robot1.xacro'" />
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen"
-        args="-urdf -param robot_description -model robot1 -x 0 -y 0 -z 1" />
+  <!-- Launch other relevant files -->
+  <include file="$(find multiple_robot_slam)/launch/robot_description.launch"/>
+
+
+  <!-- Find robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find multiple_robot_slam)/urdf/robot1.xacro'"/>
+
+  <!-- Spawn My Robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -param robot_description -model test
+              -x 0 -y 0 -z 1
+              -R 0 -P 0 -Y 0"/>
+
+  <!-- Launch RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 
 </launch>

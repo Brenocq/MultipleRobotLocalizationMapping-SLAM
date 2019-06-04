@@ -1,0 +1,8 @@
+prefix=/home/breno/catkin_ws/src/multiple_robot_slam/build/devel
+
+Name: multiple_robot_slam
+Description: Description of multiple_robot_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/breno/catkin_ws/src/multiple_robot_slam/build/devel/lib 
+Requires: roscpp std_msgs std_srvs sensor_msgs message_runtime gazebo_ros gazebo_msgs
